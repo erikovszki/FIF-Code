@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  fif-registration:
+    container_name: 'fif-registration'
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: publish
+    ports:
+      - '5115:8080'
+    depends_on:
+      - database
+    networks:
+      - fif_network
+
+  database:
+    image: mariadb:latest
+    container_name: 'csit-db'
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - '3306:3306'
+    networks:
+      - fif_network
+
+networks:
+  fif_network:
+    driver: bridge

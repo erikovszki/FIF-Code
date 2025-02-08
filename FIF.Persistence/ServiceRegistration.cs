@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FIF.Domain.User;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +22,13 @@ namespace FIF.Persistence
             {
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             });
+        }
+
+        public static void RegisterIdentity(this IServiceCollection services)
+        {
+            services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+
+            services.AddIdentityCore<User>().AddEntityFrameworkStores<AppDbContext>();
         }
     }
 }

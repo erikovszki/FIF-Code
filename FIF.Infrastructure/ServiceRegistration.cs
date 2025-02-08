@@ -12,6 +12,8 @@ namespace FIF.Infrastructure
         public static IServiceCollection AddRepositories(this IServiceCollection services,  IConfiguration configuration)
         {
             services.RegisterDatabase(configuration);
+            services.RegisterIdentity();
+
             services.AddScoped<IAppDbContext, AppDbContext>();
             return services;
         }

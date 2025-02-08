@@ -26,9 +26,7 @@ namespace FIF.Persistence
 
         public static void RegisterIdentity(this IServiceCollection services)
         {
-            services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
-
-            services.AddIdentityCore<User>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentityCore<User>().AddEntityFrameworkStores<AppDbContext>().AddSignInManager<SignInManager<User>>();
         }
     }
 }

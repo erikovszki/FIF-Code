@@ -1,0 +1,33 @@
+﻿@model UserRegistrationViewModel
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="body-content" id="login">
+    <div class="text-center">
+        <div class="login-content">
+            <img src="~/images/logo.png" alt="logo">
+            <h1>Registration Page</h1>
+            <hr>
+            <div class="login-box">
+                @{
+                    if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <p class="error-message">@Model.ErrorMessage</p>
+                    }
+                }
+                <form action="@Url.Action("Registration", "Login")" method="post">
+                    <input type="text" name="Email" required placeholder="E-mail">
+                    <br>
+                    <input type="password" name="PasswordFirst" required placeholder="Password">
+                    <br>
+                    <input type="password" name="PasswordSecond" required placeholder="Confirm Password">
+                    <br>
+                    <input type="submit" value="Register" id="register-button">
+                </form>
+            </div>
+            <a asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+            <hr>
+        </div>
+    </div>
+</div>

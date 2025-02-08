@@ -1,5 +1,8 @@
+using FIF.Application.Profiles;
 using FIF.Infrastructure;
 using FIF.Persistence.Extensions;
+using FIF.Registration.Middlewares;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,12 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthorization();
+builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
 
 builder.Services.AddRepositories(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddCommunAppServices();
 
 
+builder.Services.AddTransient<GlobalExceptionMiddleware>();
+
+builder.Services.AddAutoMapper(typeof(ServiceRegistration).Assembly, typeof(Program).Assembly);
 
 var app = builder.Build();
 
@@ -24,12 +31,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.ApplyMigrations();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

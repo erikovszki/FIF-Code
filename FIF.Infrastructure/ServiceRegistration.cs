@@ -21,6 +21,7 @@ namespace FIF.Infrastructure
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IUserService, UserService>();
             return services;
         }
 

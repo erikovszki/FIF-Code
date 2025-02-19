@@ -26,4 +26,8 @@
     <ProjectReference Include="..\FIF.Infrastructure\FIF.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

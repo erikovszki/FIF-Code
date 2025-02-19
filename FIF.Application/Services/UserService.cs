@@ -23,6 +23,11 @@ namespace FIF.Application.Services
             return res.Succeeded ? Result.Ok() : Result.Fail(FalingCases.LoginFailed);
         }
 
+        public async Task LogoutUserAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
         public async Task<Result> RegisterUserAsync(RegisterUserDto registerUserDto)
         {
             if (registerUserDto.PasswordFirst != registerUserDto.PasswordSecond)

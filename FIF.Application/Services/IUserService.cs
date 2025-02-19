@@ -7,5 +7,6 @@ namespace FIF.Application.Services
     {
         Task<Result> LoginUserAsync(string email, string password);
         Task<Result> RegisterUserAsync(RegisterUserDto registerUserDto);
+        Task LogoutUserAsync();
     }
 }

@@ -50,5 +50,12 @@ namespace FIF.Registration.Controllers
             }
             return View("Registration", new UserRegistrationViewModel { Registration = registration, ErrorMessage = result.Errors.Select(s => s.Message).FirstOrDefault() });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _userService.LogoutUserAsync();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

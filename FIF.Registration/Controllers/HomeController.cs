@@ -19,22 +19,22 @@ namespace FIF.Registration.Controllers
 
         public async Task<IActionResult> Index()
         {
-            await _personService.AddPersonAsync(new PersonDto
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                Email = "john.doe@example.com",
-                Phone = "123-456-7890",
-                Sex = SexEnum.Male,
-               Address = new PersonAddressDto
-                {
-                    Country = "USA",
-                    County = "Orange",
-                    Location = "Irvine",
-                    Street = "Main St",
-                    HouseNumber = "123"
-                }
-            });
+            //await _personService.AddPersonAsync(new PersonDto
+            //{
+            //    FirstName = "John",
+            //    LastName = "Doe",
+            //    Email = "john.doe@example.com",
+            //    Phone = "123-456-7890",
+            //    Sex = SexEnum.Male,
+            //   Address = new PersonAddressDto
+            //    {
+            //        Country = "USA",
+            //        County = "Orange",
+            //        Location = "Irvine",
+            //        Street = "Main St",
+            //        HouseNumber = "123"
+            //    }
+            //});
             return View();
         }
 

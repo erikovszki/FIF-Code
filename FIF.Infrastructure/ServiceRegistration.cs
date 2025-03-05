@@ -27,6 +27,11 @@ namespace FIF.Infrastructure
             services.AddScoped<IUserService, UserService>();
             return services;
         }
+        public static IServiceCollection AddDomainServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPersonDomainService, IPersonDomainService>();
+            return services;
+        }
 
 
         public static IServiceCollection AddCommunAppServices(this IServiceCollection services)

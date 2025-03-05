@@ -29,6 +29,7 @@ namespace FIF.Infrastructure
         }
 
 
+
         public static IServiceCollection AddCommunAppServices(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(ServiceRegistration).Assembly, typeof(PersonProfile).Assembly);

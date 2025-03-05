@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FIF.Application\FIF.Application.csproj" />
     <ProjectReference Include="..\FIF.Domain\FIF.Domain.csproj" />
+    <ProjectReference Include="..\FIF.Registration\FIF.Registration.csproj" />
   </ItemGroup>
 
   <ItemGroup>

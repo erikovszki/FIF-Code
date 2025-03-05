@@ -1,4 +1,4 @@
-﻿using FIF.Domain.Entities;
+﻿using FIF.Application.DTOs;
 
 namespace FIF.Registration.Models
 {
@@ -14,10 +14,10 @@ namespace FIF.Registration.Models
         public required TShrtSize TShrtSize { get; set; }
         public required MealPreferences MealPreferences { get; set; }
         public required Religion Religion { get; set; }
-        public string Country { get; set; }
-        public string County { get; set; }
-        public string Location { get; set; }
-        public string Street { get; set; }
-        public string HouseNumber { get; set; }
+        public required string Country { get; set; }
+        public required string County { get; set; }
+        public required string Location { get; set; }
+        public required string Street { get; set; }
+        public required string HouseNumber { get; set; }
     }
 }

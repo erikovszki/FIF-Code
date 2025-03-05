@@ -42,10 +42,11 @@ namespace FIF.Registration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateGeneralRegistration(PersonRegistrationViewModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 model.ErrorMessage = "Invalid data";
-                return View(model);
+                return View("GeneralRegistration", model);
             }
 
             var person = _mapper.Map<PersonDto>(model.Person);
@@ -53,7 +54,7 @@ namespace FIF.Registration.Controllers
             if (result.IsFailed)
             {
                 model.ErrorMessage = result.Errors.First().Message;
-                return View(model);
+                return View("GeneralRegistration", model);
             }
 
             return RedirectToAction("Index", "Home");

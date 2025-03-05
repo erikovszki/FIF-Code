@@ -1,6 +1,7 @@
 ﻿using FIF.Application.Profiles;
 using FIF.Application.Services;
 using FIF.Domain;
+using FIF.Domain.Services;
 using FIF.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace FIF.Infrastructure
             services.RegisterIdentity();
 
             services.AddScoped<IAppDbContext, AppDbContext>();
+
+            services.AddScoped<IPersonRepository, PersonRepository>();
             return services;
         }
 
@@ -24,6 +27,7 @@ namespace FIF.Infrastructure
             services.AddScoped<IUserService, UserService>();
             return services;
         }
+
 
         public static IServiceCollection AddCommunAppServices(this IServiceCollection services)
         {

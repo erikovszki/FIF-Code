@@ -9,10 +9,10 @@ namespace FIF.Application.Services
 {
     public class PersonService : IPersonService
     {
-        private readonly IPersonDomainService _personDomainService;
+        private readonly IPersonRepository _personDomainService;
         private readonly IMapper _mapper;
 
-        public PersonService(IPersonDomainService personDomainService, IMapper mapper)
+        public PersonService(IPersonRepository personDomainService, IMapper mapper)
         {
             _personDomainService = personDomainService;
             _mapper = mapper;

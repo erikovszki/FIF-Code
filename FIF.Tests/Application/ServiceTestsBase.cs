@@ -11,11 +11,11 @@ namespace FIF.Tests.Application
     {
         protected Fixture _fixture;
         protected IMapper _mapper;
-        protected IPersonDomainService _personDomainService;
+        protected IPersonRepository _personDomainService;
 
         public ServiceTestsBase()
         {
-            _personDomainService = Substitute.For<IPersonDomainService>();
+            _personDomainService = Substitute.For<IPersonRepository>();
             _fixture = new Fixture();
 
             var cfg = new MapperConfiguration(c => {

@@ -2,7 +2,7 @@
 
 namespace FIF.Domain.Services
 {
-    public interface IPersonDomainService
+    public interface IPersonRepository
     {
         Task<Person> InsertAsync(Person person);
         Task<Person?> GetByEmailAsync(string email);

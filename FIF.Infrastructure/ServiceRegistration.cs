@@ -16,6 +16,8 @@ namespace FIF.Infrastructure
             services.RegisterIdentity();
 
             services.AddScoped<IAppDbContext, AppDbContext>();
+
+            services.AddScoped<IPersonRepository, PersonRepository>();
             return services;
         }
 
@@ -25,11 +27,7 @@ namespace FIF.Infrastructure
             services.AddScoped<IUserService, UserService>();
             return services;
         }
-        public static IServiceCollection AddDomainServices(this IServiceCollection services)
-        {
-            services.AddScoped<IPersonDomainService, IPersonDomainService>();
-            return services;
-        }
+
 
         public static IServiceCollection AddCommunAppServices(this IServiceCollection services)
         {

@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FIF.Domain.Services
 {
-    public class PersonDomainService : IPersonDomainService
+    public class PersonRepository : IPersonRepository
     {
         private readonly IAppDbContext _context;
-        public PersonDomainService(IAppDbContext context)
+        public PersonRepository(IAppDbContext context)
         {
             _context = context;
         }

@@ -14,7 +14,6 @@ builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationSche
 
 builder.Services.AddRepositories(builder.Configuration);
 builder.Services.AddApplicationServices();
-builder.Services.AddDomainServices();
 builder.Services.AddCommunAppServices();
 
 

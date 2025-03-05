@@ -1,6 +1,6 @@
 ﻿using FIF.Application.Constants;
 using FIF.Application.DTOs;
-using FIF.Domain.User;
+using FIF.Domain.Entities;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
 

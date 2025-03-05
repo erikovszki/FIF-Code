@@ -1,6 +1,5 @@
 ﻿using FIF.Domain;
-using FIF.Domain.Persons;
-using FIF.Domain.User;
+using FIF.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

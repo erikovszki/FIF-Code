@@ -1,0 +1,141 @@
+﻿@model PersonRegistrationViewModel
+@using FIF.Application.DTOs
+
+@{
+    ViewData["Title"] = "Altalanos Regisztracio";
+}
+
+<h1>Create</h1>
+
+<h4>Altalanos Regisztracio</h4>
+<hr />
+<div class="row">
+    <form asp-action="CreateGeneralRegistration">
+        <div class="col-md-4">
+            @{
+                if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <p class="error-message">@Model.ErrorMessage</p>
+                }
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Person.FirstName" class="control-label"></label>
+                <input asp-for="Person.FirstName" class="form-control" />
+                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.LastName" class="control-label"></label>
+                <input asp-for="Person.LastName" class="form-control" />
+                <span asp-validation-for="Person.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Email" class="control-label"></label>
+                <input asp-for="Person.Email" class="form-control" />
+                <span asp-validation-for="Person.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Phone" class="control-label"></label>
+                <input asp-for="Person.Phone" class="form-control" />
+                <span asp-validation-for="Person.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.PersonalIdentificationNumber" class="control-label"></label>
+                <input asp-for="Person.PersonalIdentificationNumber" class="form-control" />
+                <span asp-validation-for="Person.PersonalIdentificationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Sex" class="control-label"></label>
+                <select asp-for="Person.Sex" class="form-control">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="@Sex.Female">No</option>
+                    <option value="@Sex.Male">Ferfi</option>
+                </select>
+                <span asp-validation-for="Person.Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.BirthDate" class="control-label"></label>
+                <input type="date" asp-for="Person.BirthDate" class="form-control" />
+                <span asp-validation-for="Person.BirthDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Person.TShrtSize" class="control-label"></label>
+                <select asp-for="Person.TShrtSize" class="form-control">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="@TShrtSize.FemaleS">No S</option>
+                    <option value="@TShrtSize.FemaleM">No M</option>
+                    <option value="@TShrtSize.FemaleL">No L</option>
+                    <option value="@TShrtSize.FemaleXL">Noi XL</option>
+                    <option value="@TShrtSize.FemaleXXL">Noi XXL</option>
+                    <option value="@TShrtSize.MaleS">Ferfi S</option>
+                    <option value="@TShrtSize.MaleM">Ferfi M</option>
+                    <option value="@TShrtSize.MaleL">Ferfi L</option>
+                    <option value="@TShrtSize.MaleXL">Ferfi XL</option>
+                    <option value="@TShrtSize.MaleXXL">Ferfi XXL</option>
+                </select>
+                <span asp-validation-for="Person.TShrtSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MealPreferences" class="control-label"></label>
+                <select asp-for="Person.MealPreferences" class="form-control">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="@MealPreferences.Normal">Normal</option>
+                    <option value="@MealPreferences.Vegetarian">Vegetarian</option>
+                    <option value="@MealPreferences.Vegan">Vegan</option>
+                    <option value="@MealPreferences.Paleo">Paleo</option>
+                    <option value="@MealPreferences.CarbFree">Carb Free</option>
+                    <option value="@MealPreferences.LactoseFree">Lactose Free</option>
+                    <option value="@MealPreferences.GlutenFree">Gluten Free</option>
+                    <option value="@MealPreferences.Other">Other</option>
+                </select>
+                <span asp-validation-for="Person.MealPreferences" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Religion" class="control-label"></label>
+                <select asp-for="Person.Religion" class="form-control">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="@Religion.Catolic">Katolikus</option>
+                    <option value="@Religion.GreekCatholic">Görög Katolikus</option>
+                    <option value="@Religion.Reformed">Református</option>
+                    <option value="@Religion.Evangelical">Evangelikus</option>
+                    <option value="@Religion.Unitarian">Unitárius</option>
+                    <option value="@Religion.Baptist">Baptista</option>
+                    <option value="@Religion.Pentecostal">Pünkösdi</option>
+                    <option value="@Religion.Orthodox">Ortodox</option>
+                    <option value="@Religion.Other">Egyéb</option>
+                </select>
+                <span asp-validation-for="Person.Religion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Country" class="control-label"></label>
+                <input asp-for="Person.Country" class="form-control" />
+                <span asp-validation-for="Person.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.County" class="control-label"></label>
+                <input asp-for="Person.County" class="form-control" />
+                <span asp-validation-for="Person.County" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Location" class="control-label"></label>
+                <input asp-for="Person.Location" class="form-control" />
+                <span asp-validation-for="Person.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Street" class="control-label"></label>
+                <input asp-for="Person.Street" class="form-control" />
+                <span asp-validation-for="Person.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.HouseNumber" class="control-label"></label>
+                <input asp-for="Person.HouseNumber" class="form-control" />
+                <span asp-validation-for="Person.HouseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>

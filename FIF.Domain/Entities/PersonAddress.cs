@@ -1,6 +1,4 @@
-﻿
-
-namespace FIF.Domain.Persons
+﻿namespace FIF.Domain.Entities
 {
     public class PersonAddress
     {

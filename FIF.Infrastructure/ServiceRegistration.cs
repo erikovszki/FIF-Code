@@ -1,6 +1,7 @@
 ﻿using FIF.Application.Profiles;
 using FIF.Application.Services;
 using FIF.Domain;
+using FIF.Domain.Services;
 using FIF.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,11 @@ namespace FIF.Infrastructure
         {
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IUserService, UserService>();
+            return services;
+        }
+        public static IServiceCollection AddDomainServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPersonDomainService, IPersonDomainService>();
             return services;
         }
 

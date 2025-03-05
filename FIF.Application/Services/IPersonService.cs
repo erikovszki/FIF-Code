@@ -1,4 +1,5 @@
 ﻿using FIF.Application.DTOs;
+using FluentResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace FIF.Application.Services
 {
     public interface IPersonService
     {
-        Task AddPersonAsync(PersonDto person);
+        Task<Result<PersonDto>> AddPersonAsync(PersonDto person);
+        Task<Result<bool>> PersonExistsAsync(string? email);
+        Task<Result<PersonDto>> GetPersonByEmailAsync(string email);
     }
 }

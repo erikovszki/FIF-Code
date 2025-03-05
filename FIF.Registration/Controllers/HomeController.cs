@@ -17,7 +17,7 @@ namespace FIF.Registration.Controllers
             _personService = personService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             //await _personService.AddPersonAsync(new PersonDto
             //{
